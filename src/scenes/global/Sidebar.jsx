@@ -38,6 +38,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isDarkmode = theme.palette.mode === "dark";
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
@@ -96,7 +97,11 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={
+                    isDarkmode
+                      ? `../../assets/baby.png`
+                      : `../../assets/old.png`
+                  }
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -107,7 +112,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  어린이
+                  {isDarkmode ? `어린이` : `노인`}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   교통사고량 체크
