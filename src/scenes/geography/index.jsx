@@ -22,33 +22,51 @@ const Geography = () => {
   const [selectedData2, setSelectedData2] = useState(null);
   const [selectedDataType, setSelectedDataType] = useState(null);
 
+  // 노인 데이터를 가져오는 비동기 함수
   const fetchDataForSeniorCitizens = () => {
+    // Promise.resolve를 사용하여 노인 데이터를 즉시 반환
     return Promise.resolve("senior");
   };
 
+  // 어린이 데이터를 가져오는 비동기 함수
   const fetchDataForChildren = () => {
+    // Promise.resolve를 사용하여 어린이 데이터를 즉시 반환
     return Promise.resolve("children");
   };
+
+  // fetchData 함수는 주어진 데이터 유형에 따라 다른 데이터를 가져와서 state를 업데이트합니다.
+  const fetchData = (type) => {
+    // 만약 데이터 유형이 "senior"이면
+    if (type === "senior") {
+      // 선택된 데이터 유형을 "senior"로 설정
+      setSelectedDataType("senior");
+
+      // fetchDataForSeniorCitizens 함수를 호출하고, 데이터를 받아온 후 state를 업데이트
+      fetchDataForSeniorCitizens().then((data) => {
+        console.log("Senior data:", data); // 콘솔에 노인 데이터 출력
+        setSelectedData2(data); // state 업데이트
+      });
+    }
+    // 만약 데이터 유형이 "children"이면
+    else if (type === "children") {
+      // 선택된 데이터 유형을 "children"으로 설정
+      setSelectedDataType("children");
+
+      // fetchDataForChildren 함수를 호출하고, 데이터를 받아온 후 state를 업데이트
+      fetchDataForChildren().then((data) => {
+        console.log("Children data:", data); // 콘솔에 어린이 데이터 출력
+        setSelectedData(data); // state 업데이트
+      });
+    }
+  };
+  useEffect(() => {
+    // 초기 렌더링 시에 어린이 데이터를 가져옴
+    fetchData("children");
+  }, []); // 두 번째 매개변수로 빈 배열을 전달하여 최초 한 번만 실행되도록 함
 
   // useEffect(() => {
   //   fetchData(selectedDataType);
   // }, [selectedDataType]);
-
-  const fetchData = (type) => {
-    if (type === "senior") {
-      setSelectedDataType("senior");
-      fetchDataForSeniorCitizens().then((data) => {
-        console.log("Senior data:", data);
-        setSelectedData2(data);
-      });
-    } else if (type === "children") {
-      setSelectedDataType("children");
-      fetchDataForChildren().then((data) => {
-        console.log("Children data:", data);
-        setSelectedData(data);
-      });
-    }
-  };
   return (
     <Box m="20px">
       {/* HEADER */}
