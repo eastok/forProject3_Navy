@@ -402,7 +402,7 @@ const Map = () => {
         zoom={12}
         scrollWheelZoom={false}
         dragging={false}
-        style={{ width: "80%", height: "1000px" }}
+        style={{ width: "70%", height: "1000px" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -431,8 +431,18 @@ const Map = () => {
 
       <div
         className="table-container"
-        style={{ width: "20%", height: "1000px" }}
+        style={{ width: "30%", height: "1000px" }}
       >
+        {/* 
+구이름
+value	
+dangerIndex:위험지수
+childAccidents:어린이사고수
+predictedChildAccidents:예측어린이사고수
+population:인구수
+childPopulation:어린이인구
+childAccidentCount:어린이사고수
+vehicleRegistration:차량등록대수 */}
         <table>
           <tbody>
             {selectedRegion && (
@@ -450,8 +460,28 @@ const Map = () => {
                   <td>{selectedRegion.dangerIndex}</td>
                 </tr>
                 <tr>
-                  <th className="th">어린이사고수</th>
-                  <td className="td">{selectedRegion.childAccidents}</td>
+                  <th>어린이사고수</th>
+                  <td>{selectedRegion.childAccidents}</td>
+                </tr>
+                <tr>
+                  <th>예측어린이사고수</th>
+                  <td>{selectedRegion.predictedChildAccidents}</td>
+                </tr>
+                <tr>
+                  <th>population</th>
+                  <td>{selectedRegion.population}</td>
+                </tr>
+                <tr>
+                  <th>어린이인구</th>
+                  <td>{selectedRegion.childPopulation}</td>
+                </tr>
+                <tr>
+                  <th>어린이사고수</th>
+                  <td>{selectedRegion.childAccidentCount}</td>
+                </tr>
+                <tr>
+                  <th>차량등록대수</th>
+                  <td>{selectedRegion.vehicleRegistration}</td>
                 </tr>
                 {/* Add other rows as needed */}
               </React.Fragment>
