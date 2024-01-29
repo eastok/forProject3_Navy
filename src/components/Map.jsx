@@ -125,8 +125,8 @@ const Map = () => {
   const mapCenter = [37.566345, 126.977893];
 
   const mapStyles = {
-    height: "600px",
-    width: "100%",
+    height: "100%",
+    width: "1300px",
   };
 
   const handleFeatureClick = (e) => {
@@ -140,7 +140,13 @@ const Map = () => {
   };
 
   return (
-    <MapContainer center={mapCenter} zoom={11} style={mapStyles}>
+    <MapContainer
+      center={mapCenter}
+      zoom={12}
+      scrollWheelZoom={false}
+      dragging={false}
+      style={mapStyles}
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
