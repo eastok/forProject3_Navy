@@ -18,14 +18,14 @@ const Dashboard = () => {
         />
       </Box>
 
-      <Box
+      {/* <Box
         height="75vh"
         border={`1px solid ${colors.grey[100]}`}
         borderRadius="4px"
         style={{ position: "relative" }}
-      >
-        <Map />
-      </Box>
+      > */}
+      <Map />
+      {/* </Box> */}
     </Box>
   );
 };

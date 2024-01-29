@@ -342,10 +342,10 @@ const data = [
     vehicleRegistration: 235415,
   },
 ];
-
 const Map = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
+  const [selectedDistrict, setSelectedDistrict] = useState(null);
 
   useEffect(() => {
     const fetchGeoJsonData = async () => {
@@ -354,7 +354,7 @@ const Map = () => {
         const data = await response.json();
         setGeoJsonData(data);
       } catch (error) {
-        console.error("Error fetching GeoJSON data:", error);
+        console.error("GeoJSON 데이터를 가져오는 중 오류 발생:", error);
       }
     };
 
@@ -377,6 +377,7 @@ const Map = () => {
       (item) => item.name === geoJsonFeature.properties.name
     );
     setSelectedRegion(selectedData);
+    setSelectedDistrict(selectedData);
 
     layer
       .bindPopup(
@@ -395,49 +396,70 @@ const Map = () => {
   };
 
   return (
-    <MapContainer
-      center={mapCenter}
-      zoom={12}
-      scrollWheelZoom={false}
-      dragging={false}
-      style={mapStyles}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {geoJsonData && (
-        <GeoJSON
-          data={geoJsonData}
-          style={(feature) => ({
-            fillColor: getColor(
-              data.find((item) => item.name === feature.properties.name).value
-            ),
-            weight: 2,
-            opacity: 1,
-            color: "white",
-            fillOpacity: 0.7,
-          })}
-          onEachFeature={(feature, layer) => {
-            layer.on({
-              click: handleFeatureClick,
-            });
-          }}
+    <div style={{ display: "flex" }} width="100vh" height="100%">
+      <MapContainer
+        center={mapCenter}
+        zoom={12}
+        scrollWheelZoom={false}
+        dragging={false}
+        style={{ width: "80%", height: "1000px" }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-      )}
-      {selectedRegion && (
-        <Marker position={centers[selectedRegion.name]}>
-          {/* 이름을 마커 위에 나타내기 */}
-          <Popup>
-            <b>{selectedRegion.name}</b>
-            <br />
-            인구수: {selectedRegion.population}
-            <br />
-          </Popup>
-        </Marker>
-      )}
-    </MapContainer>
+        {geoJsonData && (
+          <GeoJSON
+            data={geoJsonData}
+            style={(feature) => ({
+              fillColor: getColor(
+                data.find((item) => item.name === feature.properties.name).value
+              ),
+              weight: 2,
+              opacity: 1,
+              color: "white",
+              fillOpacity: 0.7,
+            })}
+            onEachFeature={(feature, layer) => {
+              layer.on({
+                click: handleFeatureClick,
+              });
+            }}
+          />
+        )}
+      </MapContainer>
+
+      <div
+        className="table-container"
+        style={{ width: "20%", height: "1000px" }}
+      >
+        <table>
+          <tbody>
+            {selectedRegion && (
+              <React.Fragment>
+                <tr>
+                  <th>지역구</th>
+                  <td>{selectedRegion.name}</td>
+                </tr>
+                <tr>
+                  <th>Value</th>
+                  <td>{selectedRegion.value}</td>
+                </tr>
+                <tr>
+                  <th>위험지수</th>
+                  <td>{selectedRegion.dangerIndex}</td>
+                </tr>
+                <tr>
+                  <th className="th">어린이사고수</th>
+                  <td className="td">{selectedRegion.childAccidents}</td>
+                </tr>
+                {/* Add other rows as needed */}
+              </React.Fragment>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
-
 export default Map;
