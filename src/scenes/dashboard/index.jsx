@@ -12,7 +12,7 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
-
+import Map from "../../components/Map";
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -29,10 +29,13 @@ const Dashboard = () => {
 
       <Box
         height="75vh"
-        border={`1px solid ${colors.grey[100]}`}
+        // border={`1px solid ${colors.grey[100]}`}
         borderRadius="4px"
+        style={{ position: "relative" }}
       >
-        <GeographyChart />
+        <Map />
+
+        {/* <GeographyChart /> */}
       </Box>
     </Box>
   );
