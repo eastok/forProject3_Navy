@@ -126,7 +126,7 @@ const Map = () => {
 
   const mapStyles = {
     height: "100%",
-    width: "1300px",
+    width: "100%",
   };
 
   const handleFeatureClick = (e) => {
