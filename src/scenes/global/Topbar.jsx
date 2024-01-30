@@ -8,12 +8,20 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const isDarkmode = theme.palette.mode === "dark";
+  const navigate = useNavigate();
+
+  const handleImageClick = () => {
+    colorMode.toggleColorMode();
+    navigate(isDarkmode ? "/oldManMap" : "/");
+  };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -31,20 +39,21 @@ const Topbar = () => {
 
       {/* ICONS */}
       <Box display="flex">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton>
+        <img
+          onClick={handleImageClick}
+          alt="profile-user"
+          width="36.55px"
+          height="36.55px"
+          src={isDarkmode ? `../../assets/old.png` : `../../assets/baby.png`}
+          style={{ cursor: "pointer", borderRadius: "50%" }}
+        />
         {/* <IconButton>
           <NotificationsOutlinedIcon />
         </IconButton>
         <IconButton>
           <SettingsOutlinedIcon />
         </IconButton> */}
-        <Link to="/oldmanmap" style={{ color: 'inherit' }}>
+        <Link to="/oldmanmap" style={{ color: "inherit" }}>
           <IconButton>
             <PersonOutlinedIcon />
           </IconButton>

@@ -65,7 +65,26 @@ const centers = {
   송파구: [37.5056205, 127.1152992],
   강동구: [37.5504483, 127.1470117],
 };
+{
+  /* 
+구이름
+value	
+dangerIndex:위험지수
+childAccidents:어린이사고수
+predictedChildAccidents:예측어린이사고수
+population:인구수
+childPopulation:어린이인구
+childAccidentCount:어린이사고수
+vehicleRegistration:차량등록대수
+  park: ,
+    childcenter:어린이공원개수 ,
+    kindergarden: 어린이집수 ,
+    elementary: 유치원수,
+    ckl_total: 초등학교수,
+    protectionzone: ,
 
+*/
+}
 const data = [
   {
     name: "중구",
