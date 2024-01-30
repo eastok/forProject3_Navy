@@ -21,7 +21,6 @@ const Geography = () => {
   const isDarkmode = theme.palette.mode === "dark";
   const [selectedData, setSelectedData] = useState(null);
   const [selectedData2, setSelectedData2] = useState(null);
-  const [selectedDataType, setSelectedDataType] = useState(null);
 
   // 노인 데이터를 가져오는 비동기 함수
   // const fetchDataForSeniorCitizens = () => {
@@ -103,17 +102,18 @@ const Geography = () => {
         <Box mt={2}>
           <Typography>{selectedData}</Typography>
           <div>
-            <Box
+            {/* <Box
               display="flex"
               justifyContent="space-between"
               alignItems="center"
             >
-              <Box>
-                <Header
-                  title="서울시지역별어린이교통사고"
-                  subtitle="어린이 보행자 사고에 미치는 요인분석"
-                />
-              </Box>
+              
+            </Box> */}
+            <Box>
+              <Header
+                title="서울시지역별어린이교통사고"
+                subtitle="어린이 보행자 사고에 미치는 요인분석"
+              />
             </Box>
 
             <Box
@@ -270,6 +270,53 @@ const Geography = () => {
                 backgroundColor={colors.primary[400]}
               >
                 <Box
+                  // mt="25px"
+                  // p="0 30px"
+                  display="flex "
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                  >
+                    <img
+                      src="../../assets/OECD국가별.png"
+                      alt="Social Analysis"
+                      style={{ width: "100%" }}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+
+              {/* ROW 3:  뭐 원형 그래프? */}
+              <Box
+                gridColumn="span 8"
+                gridRow="span 4"
+                backgroundColor={colors.primary[400]}
+                // p="30px"
+              >
+                {/* <Typography variant="h5" fontWeight="600">
+                  사회적 요인 상관관계 분석
+                </Typography> */}
+
+                <Box display="flex" flexDirection="column" alignItems="center">
+                  <img
+                    src="../../assets/사회적요인과 상관관계분석.png"
+                    alt="Social Analysis"
+                    style={{ width: "100%" }}
+                  />
+                </Box>
+              </Box>
+
+              {/* ROW 2 */}
+              <Box
+                gridColumn="span 10"
+                gridRow="span 2"
+                backgroundColor={colors.primary[400]}
+              >
+                <Box
                   mt="25px"
                   p="0 30px"
                   display="flex "
@@ -278,29 +325,19 @@ const Geography = () => {
                 >
                   <Box>
                     <Typography
-                      variant="h5"
-                      fontWeight="600"
-                      color={colors.grey[100]}
-                    >
-                      Revenue Generated
-                    </Typography>
-                    <Typography
                       variant="h3"
                       fontWeight="bold"
                       color={colors.greenAccent[500]}
                     >
-                      $59,342.32
+                      GradientBoosting
                     </Typography>
-                  </Box>
-                  <Box>
-                    <IconButton>
-                      <DownloadOutlinedIcon
-                        sx={{
-                          fontSize: "26px",
-                          color: colors.greenAccent[500],
-                        }}
-                      />
-                    </IconButton>
+                    <Typography
+                      variant="h5"
+                      fontWeight="600"
+                      color={colors.grey[100]}
+                    >
+                      지역구별 어린이 사고수와 예측어린이 사고수
+                    </Typography>
                   </Box>
                 </Box>
 
@@ -309,67 +346,6 @@ const Geography = () => {
                 </Box>
               </Box>
 
-              {/* ROW 3:  뭐 원형 그래프? */}
-              <Box
-                gridColumn="span 8"
-                gridRow="span 2"
-                backgroundColor={colors.primary[400]}
-                p="30px"
-              >
-                <Typography variant="h5" fontWeight="600">
-                  Buchanan
-                </Typography>
-
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  mt="25px"
-                >
-                  <Box display="flex">
-                    <ProgressCircle2
-                      size="200"
-                      title="68.79k"
-                      description="Buchanan"
-                    />
-                    <Box marginLeft="20px">
-                      <ProgressCircle2
-                        size="200"
-                        title="126.89k"
-                        description="Callahan"
-                      />
-                    </Box>
-                  </Box>
-                  <Typography
-                    variant="h5"
-                    color={colors.greenAccent[500]}
-                    sx={{ mt: "15px" }}
-                  >
-                    $48,352 revenue generated
-                  </Typography>
-                  <Typography>
-                    Includes extra misc expenditures and costs
-                  </Typography>
-                </Box>
-              </Box>
-
-              {/*    Sales Quantity*/}
-              <Box
-                gridColumn="span 10"
-                gridRow="span 2"
-                backgroundColor={colors.primary[400]}
-              >
-                <Typography
-                  variant="h5"
-                  fontWeight="600"
-                  sx={{ padding: "30px 30px 0 30px" }}
-                >
-                  Sales Quantity
-                </Typography>
-                <Box height="250px" mt="-20px">
-                  <BarChart isDashboard={true} />
-                </Box>
-              </Box>
               {/*  Sales Quantity 끝 */}
             </Box>
           </div>
@@ -555,22 +531,6 @@ const Geography = () => {
                   alignItems="center"
                 >
                   <Box>
-                    <Typography
-                      variant="h5"
-                      fontWeight="600"
-                      color={colors.grey[100]}
-                    >
-                      Revenue Generated
-                    </Typography>
-                    <Typography
-                      variant="h3"
-                      fontWeight="bold"
-                      color={colors.greenAccent[500]}
-                    >
-                      $59,342.32
-                    </Typography>
-                  </Box>
-                  <Box>
                     <IconButton>
                       <DownloadOutlinedIcon
                         sx={{
@@ -580,10 +540,6 @@ const Geography = () => {
                       />
                     </IconButton>
                   </Box>
-                </Box>
-
-                <Box height="250px" m="-20px 0 0 0">
-                  <LineChart isDashboard={true} />
                 </Box>
               </Box>
 
@@ -618,36 +574,20 @@ const Geography = () => {
                       />
                     </Box>
                   </Box>
-                  <Typography
-                    variant="h5"
-                    color={colors.greenAccent[500]}
-                    sx={{ mt: "15px" }}
-                  >
-                    $48,352 revenue generated
-                  </Typography>
-                  <Typography>
-                    Includes extra misc expenditures and costs
-                  </Typography>
                 </Box>
               </Box>
-              {/*    Sales Quantity*/}
+
               <Box
                 gridColumn="span 10"
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
               >
-                <Typography
-                  variant="h5"
-                  fontWeight="600"
-                  sx={{ padding: "30px 30px 0 30px" }}
-                >
-                  Sales Quantity
-                </Typography>
-                <Box height="250px" mt="-20px">
-                  <BarChart isDashboard={true} />
-                </Box>
+                <img
+                  src="../../assets/OECD국가별.png"
+                  alt="OECD 국가별"
+                  style={{ width: "100%" }}
+                />
               </Box>
-              {/*  Sales Quantity 끝 */}
             </Box>
           </div>
         </Box>

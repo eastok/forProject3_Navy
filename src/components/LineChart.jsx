@@ -158,6 +158,11 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
               },
             },
           ],
+          // 수정된 부분: 범례 텍스트를 수정
+          data: [
+            { label: "어린이 사고", fill: "#6971fa" }, // "childAccidents"에 해당하는 범례 텍스트와 색상
+            { label: "예측값", fill: "#4dceac" }, // "Gradient Boosting"에 해당하는 범례 텍스트와 색상
+          ],
         },
       ]}
     />
