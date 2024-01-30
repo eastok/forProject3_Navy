@@ -421,6 +421,22 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
+
+        {Object.keys(centers).map((district) => (
+          <Marker
+            key={district}
+            position={centers[district]}
+            icon={
+              new L.divIcon({
+                className: "custom-marker",
+                html: `<div class="text-with-shadow">${district}</div>`,
+                iconSize: [80, 10], // 아이콘 크기 조절
+                iconAnchor: [40, 5], // 아이콘 중심 조절
+              })
+            }
+          />
+        ))}
+
         {geoJsonData && (
           <GeoJSON
             data={geoJsonData}
