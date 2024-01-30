@@ -93,7 +93,7 @@ const Geography = () => {
             fontSize: "14px",
             fontWeight: "bold",
             padding: "10px 20px",
-          }}
+          }}--
         >
           노인데이터보기
         </Button> */}
