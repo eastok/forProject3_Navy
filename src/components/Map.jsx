@@ -3,7 +3,8 @@ import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "../Map.css"; // Map.css 파일에 스타일 추가"
-
+import { Box, useTheme } from "@mui/material";
+import { tokens } from "../theme";
 const getColor = (value) => {
   // 빨간 톤 팔레트로 세부적인 색상 반환
   const colorScale = [
@@ -345,7 +346,21 @@ const data = [
 const Map = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
-  const [selectedDistrict, setSelectedDistrict] = useState(null);
+
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+
+  const tableHeaders = [
+    "지역구",
+    "Value",
+    "위험지수",
+    "어린이사고수",
+    "예측어린이사고수",
+    "population",
+    "어린이인구",
+    "어린이사고수",
+    "차량등록대수",
+  ];
 
   useEffect(() => {
     const fetchGeoJsonData = async () => {
@@ -377,13 +392,11 @@ const Map = () => {
       (item) => item.name === geoJsonFeature.properties.name
     );
     setSelectedRegion(selectedData);
-    setSelectedDistrict(selectedData);
 
     layer
       .bindPopup(
         `<b>${geoJsonFeature.properties.name}</b>
         <br>
-       Value: ${selectedData.value}<br>
       위험지수: ${selectedData.dangerIndex}<br>
       어린이사고수: ${selectedData.childAccidents}<br>
       예측어린이사고수: ${selectedData.predictedChildAccidents}<br>
@@ -443,51 +456,71 @@ population:인구수
 childPopulation:어린이인구
 childAccidentCount:어린이사고수
 vehicleRegistration:차량등록대수 */}
-        <table>
-          <tbody>
-            {selectedRegion && (
-              <React.Fragment>
-                <tr>
-                  <th>지역구</th>
-                  <td>{selectedRegion.name}</td>
-                </tr>
-                <tr>
-                  <th>Value</th>
-                  <td>{selectedRegion.value}</td>
-                </tr>
-                <tr>
-                  <th>위험지수</th>
-                  <td>{selectedRegion.dangerIndex}</td>
-                </tr>
-                <tr>
-                  <th>어린이사고수</th>
-                  <td>{selectedRegion.childAccidents}</td>
-                </tr>
-                <tr>
-                  <th>예측어린이사고수</th>
-                  <td>{selectedRegion.predictedChildAccidents}</td>
-                </tr>
-                <tr>
-                  <th>population</th>
-                  <td>{selectedRegion.population}</td>
-                </tr>
-                <tr>
-                  <th>어린이인구</th>
-                  <td>{selectedRegion.childPopulation}</td>
-                </tr>
-                <tr>
-                  <th>어린이사고수</th>
-                  <td>{selectedRegion.childAccidentCount}</td>
-                </tr>
-                <tr>
-                  <th>차량등록대수</th>
-                  <td>{selectedRegion.vehicleRegistration}</td>
-                </tr>
-                {/* Add other rows as needed */}
-              </React.Fragment>
-            )}
-          </tbody>
-        </table>
+        <Box
+          gridAutoRows="170px"
+          gap="20px"
+          backgroundColor={colors.primary[400]}
+          padding="20px"
+        >
+          {/* ROW 1 */}
+          <Box
+            gridColumn="span 3"
+            backgroundColor={colors.primary[400]}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            position="relative"
+          ></Box>
+
+          {selectedRegion ? (
+            <table>
+              <tbody>
+                {selectedRegion && (
+                  <React.Fragment>
+                    <tr>
+                      <th>지역구</th>
+                      <td>{selectedRegion.name}</td>
+                    </tr>
+
+                    <tr>
+                      <th>위험지수</th>
+                      <td>{selectedRegion.dangerIndex}</td>
+                    </tr>
+                    <tr>
+                      <th>어린이사고수</th>
+                      <td>{selectedRegion.childAccidents}</td>
+                    </tr>
+                    <tr>
+                      <th>예측어린이사고수</th>
+                      <td>{selectedRegion.predictedChildAccidents}</td>
+                    </tr>
+                    <tr>
+                      <th>population</th>
+                      <td>{selectedRegion.population}</td>
+                    </tr>
+                    <tr>
+                      <th>어린이인구</th>
+                      <td>{selectedRegion.childPopulation}</td>
+                    </tr>
+                    <tr>
+                      <th>어린이사고수</th>
+                      <td>{selectedRegion.childAccidentCount}</td>
+                    </tr>
+                    <tr>
+                      <th>차량등록대수</th>
+                      <td>{selectedRegion.vehicleRegistration}</td>
+                    </tr>
+                    {/* Add other rows as needed */}
+                  </React.Fragment>
+                )}
+              </tbody>
+            </table>
+          ) : (
+            <div style={{ textAlign: "center", color: "white" }}>
+              지역을 클릭해 주세요
+            </div>
+          )}
+        </Box>
       </div>
     </div>
   );
