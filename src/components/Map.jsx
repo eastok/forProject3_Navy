@@ -518,6 +518,26 @@ const getColor = (value) => {
 };
 
 const Map = () => {
+  const handleFeatureHover = (e) => {
+    const layer = e.target;
+    layer.setStyle({
+      // 마우스 오버 시의 스타일 정의
+      weight: 5,
+      backgroundColor: "#fff",
+      dashArray: "",
+      fillOpacity: 0.7,
+    });
+  };
+
+  const handleFeatureUnhover = (e) => {
+    const layer = e.target;
+    layer.setStyle({
+      // 마우스 나갈 때의 스타일 정의
+      weight: 2,
+      color: "#fff",
+      fillOpacity: 0.7,
+    });
+  };
   const colorScale = [
     "#67000d",
     "#a50f15",
@@ -579,30 +599,21 @@ const Map = () => {
     layer
       .bindPopup(
         `<b>${geoJsonFeature.properties.name}</b>
-        <b<br>
-  위험지수: ${selectedData.dangerIndex}<br>
-  어린이사고수: ${selectedData.childAccidents}<br>
-  예측어린이사고수: ${selectedData.predictedChildAccidents}<br>
-  인구수 : ${selectedData.population.toLocaleString()}<br>
-  어린이인구 : ${selectedData.childPopulation.toLocaleString()}<br>
-  어린이사고수 : ${selectedData.childAccidentCount}<br>
-  차량등록대수 : ${selectedData.vehicleRegistration.toLocaleString()}<br>
-  <!-- 추가 항목 시작 -->
-  어린이공원개수: ${selectedRegion.park}<br>
-  어린이집수: ${selectedRegion.childcenter}<br>
-  유치원수: ${selectedRegion.kindergarden}<br>
-  초등학교수: ${selectedRegion.elementary}<br>
-  어유초: ${selectedRegion.ckl_total}<br>
-  어린이보호구역개수: ${selectedRegion.protectionzone}<br>r>
-    위험지수: ${selectedData.dangerIndex}<br>
-    어린이사고수: ${selectedData.childAccidents}<br>
-    예측어린이사고수: ${selectedData.predictedChildAccidents}<br>
-     인구수 : ${selectedData.population.toLocaleString()}<br>
-  어린이인구 : ${selectedData.childPopulation.toLocaleString()}<br>
-     어린이사고수 : ${selectedData.childAccidentCount}<br>
-     차량등록대수 : ${selectedData.vehicleRegistration.toLocaleString()}
-     
-        `
+        <br>
+        위험지수: ${selectedData.dangerIndex}<br>
+        어린이사고수: ${selectedData.childAccidents}<br>
+        예측어린이사고수: ${selectedData.predictedChildAccidents}<br>
+        인구수 : ${selectedData.population.toLocaleString()}<br>
+        어린이인구 : ${selectedData.childPopulation.toLocaleString()}<br>
+        어린이사고수 : ${selectedData.childAccidentCount}<br>
+        차량등록대수 : ${selectedData.vehicleRegistration.toLocaleString()}<br>
+        어린이공원개수: ${selectedData.park}<br>
+        어린이집수: ${selectedData.childcenter}<br>
+        유치원수: ${selectedData.kindergarden}<br>
+        초등학교수: ${selectedData.elementary}<br>
+        어유초: ${selectedData.ckl_total}<br>
+        어린이보호구역개수: ${selectedData.protectionzone}<br>
+      `
       )
       .openPopup();
   };
@@ -676,10 +687,13 @@ const Map = () => {
               opacity: 1,
               color: "white",
               fillOpacity: 0.7,
+              transition: "colo 0.3s ease-in-out",
             })}
             onEachFeature={(feature, layer) => {
               layer.on({
                 click: handleFeatureClick,
+                mouseover: handleFeatureHover,
+                mouseout: handleFeatureUnhover,
               });
             }}
           />
