@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
+import { Box, useTheme } from "@mui/material";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "../Map.css"; // Map.css 파일에 스타일 추가"
+import { tokens } from "../theme";
 
 const geoJsonURL = "./new_seoul_geo.json";
 const centersURL = "./centers.json";
@@ -23,6 +25,9 @@ const MapForOld = () => {
   const [centers, setCenters] = useState(null);
   const [accidentData, setAccidentData] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
+
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   useEffect(() => {
     const fetchGeoJsonData = async () => {
@@ -89,7 +94,7 @@ const MapForOld = () => {
       <MapContainer
         center={[37.5665, 126.978]}
         zoom={11}
-        style={{ width: "70%", height: "1000px" }}
+        style={{ width: "70%", height: "500px" }}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {geoJsonData && accidentData && (
@@ -132,57 +137,81 @@ const MapForOld = () => {
       </MapContainer>
       <div
         className="table-container"
-        style={{ width: "30%", height: "1000px" }}
+        style={{ width: "30%", height: "500px" }}
       >
-        <table>
-          <tbody>
-            {selectedRegion && (
-              <React.Fragment>
-                <tr>
-                  <th>지역구</th>
-                  <td>{selectedRegion["구"]}</td>
-                </tr>
-                <tr>
-                  <th>노인 인구수</th>
-                  <td>{selectedRegion["노인 인구수"].toLocaleString()}</td>
-                </tr>
-                <tr>
-                  <th>사고 발생 건수</th>
-                  <td>{selectedRegion["사고 발생 건수"]}</td>
-                </tr>
-                <tr>
-                  <th>인구대비 사고 비율(%)</th>
-                  <td>{selectedRegion["사고 비율(%)"].toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <th>병원 수</th>
-                  <td>{selectedRegion["병원 수"]}</td>
-                </tr>
-                <tr>
-                  <th>노인여가복지시설 수</th>
-                  <td>{selectedRegion["노인여가복지시설 수"]}</td>
-                </tr>
-                <tr>
-                  <th>노인의료복지시설 수</th>
-                  <td>{selectedRegion["노인의료복지시설 수"]}</td>
-                </tr>
-                <tr>
-                  <th>재가노인복지시설 수</th>
-                  <td>{selectedRegion["재가노인복지시설 수"]}</td>
-                </tr>
-                <tr>
-                  <th>전통시장 수</th>
-                  <td>{selectedRegion["전통시장 수"]}</td>
-                </tr>
-                <tr>
-                  <th>공원 수</th>
-                  <td>{selectedRegion["공원 수"]}</td>
-                </tr>
-                {/* 필요에 따라 추가 행 추가 */}
-              </React.Fragment>
-            )}
-          </tbody>
-        </table>
+        <Box
+          gridAutoRows="170px"
+          gap="20px"
+          backgroundColor={colors.primary[400]}
+          padding="20px"
+          height="500px"
+        >
+          {/* ROW 1 */}
+          <Box
+            gridColumn="span 3"
+            backgroundColor={colors.primary[400]}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            position="relative"
+          ></Box>
+
+          {selectedRegion ? (
+            <table>
+              <tbody>
+                {selectedRegion && (
+                  <React.Fragment>
+                    <tr>
+                      <th>지역구</th>
+                      <td>{selectedRegion["구"]}</td>
+                    </tr>
+                    <tr>
+                      <th>노인 인구수</th>
+                      <td>{selectedRegion["노인 인구수"].toLocaleString()}</td>
+                    </tr>
+                    <tr>
+                      <th>사고 발생 건수</th>
+                      <td>{selectedRegion["사고 발생 건수"]}</td>
+                    </tr>
+                    <tr>
+                      <th>인구대비 사고 비율(%)</th>
+                      <td>{selectedRegion["사고 비율(%)"].toFixed(2)}</td>
+                    </tr>
+                    <tr>
+                      <th>병원 수</th>
+                      <td>{selectedRegion["병원 수"]}</td>
+                    </tr>
+                    <tr>
+                      <th>노인여가복지시설 수</th>
+                      <td>{selectedRegion["노인여가복지시설 수"]}</td>
+                    </tr>
+                    <tr>
+                      <th>노인의료복지시설 수</th>
+                      <td>{selectedRegion["노인의료복지시설 수"]}</td>
+                    </tr>
+                    <tr>
+                      <th>재가노인복지시설 수</th>
+                      <td>{selectedRegion["재가노인복지시설 수"]}</td>
+                    </tr>
+                    <tr>
+                      <th>전통시장 수</th>
+                      <td>{selectedRegion["전통시장 수"]}</td>
+                    </tr>
+                    <tr>
+                      <th>공원 수</th>
+                      <td>{selectedRegion["공원 수"]}</td>
+                    </tr>
+                    {/* 필요에 따라 추가 행 추가 */}
+                  </React.Fragment>
+                )}
+              </tbody>
+            </table>
+          ) : (
+            <div style={{ textAlign: "center", color: "white" }}>
+              지역을 클릭해 주세요
+            </div>
+          )}
+        </Box>
       </div>
     </div>
   );
