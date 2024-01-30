@@ -133,21 +133,21 @@ const Sidebar = () => {
               Charts
             </Typography>
             <Item
-              title="차트1"
+              title="취약지역"
               to="/bar"
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="차트2"
+              title="안전지역"
               to="/pie"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="어린이교통사고예측"
+              title="교통사고예측"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
