@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "../Map.css"; // Map.css 파일에 스타일 추가"
-import { Box, useTheme } from "@mui/material";
+import { Box, useTheme, Typography } from "@mui/material";
 import { tokens } from "../theme";
 const getColor = (value) => {
   // 빨간 톤 팔레트로 세부적인 색상 반환
@@ -495,6 +495,15 @@ const data = [
   },
 ];
 const Map = () => {
+  const colorScale = [
+    "#67000d",
+    "#a50f15",
+    "#de2d26",
+    "#fb6a4a",
+    "#fc9272",
+    "#fcbba1",
+    "#fee5d9",
+  ];
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
 
@@ -562,6 +571,35 @@ const Map = () => {
 
   return (
     <div style={{ display: "flex" }} width="100vh" height="100%">
+      <div
+        className="legend"
+        style={{ width: "5%", height: "1000px", padding: "10px" }}
+      >
+        {colorScale.map((color, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "5px",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: color,
+                marginRight: "5px",
+              }}
+            ></div>
+            {index === 0
+              ? "위험"
+              : index === colorScale.length - 1
+              ? "안전"
+              : ""}
+          </div>
+        ))}
+      </div>
       <MapContainer
         center={mapCenter}
         zoom={12}
