@@ -5,34 +5,7 @@ import L from "leaflet";
 import "../Map.css"; // Map.css 파일에 스타일 추가"
 import { Box, useTheme, Typography } from "@mui/material";
 import { tokens } from "../theme";
-const getColor = (value) => {
-  // 빨간 톤 팔레트로 세부적인 색상 반환
-  const colorScale = [
-    "#fee5d9",
-    "#fcbba1",
-    "#fc9272",
-    "#fb6a4a",
-    "#de2d26",
-    "#a50f15",
-    "#67000d",
-  ];
 
-  if (value < 0.15) {
-    return colorScale[0];
-  } else if (value < 0.165) {
-    return colorScale[1];
-  } else if (value < 0.18) {
-    return colorScale[2];
-  } else if (value < 0.2) {
-    return colorScale[3];
-  } else if (value < 0.21) {
-    return colorScale[4];
-  } else if (value < 0.22) {
-    return colorScale[5];
-  } else {
-    return colorScale[6];
-  }
-};
 // 서울 구별 GeoJSON 데이터 URL
 const geoJsonURL =
   "https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo_simple.json";
@@ -513,6 +486,37 @@ const data = [
     protectionzone: 116,
   },
 ];
+const getColor = (value) => {
+  console.log("Selected Danger Index:", value);
+  // 빨간 톤 팔레트로 세부적인 색상 반환
+  const colorScale = [
+    "#fee5d9",
+    "#fcbba1",
+    "#fc9272",
+    "#fb6a4a",
+    "#de2d26",
+    "#a50f15",
+    "#67000d",
+  ];
+
+  // value 값을 기반으로 팔레트 선택
+  if (value < 0.15) {
+    return colorScale[0];
+  } else if (value < 0.165) {
+    return colorScale[1];
+  } else if (value < 0.18) {
+    return colorScale[2];
+  } else if (value < 0.2) {
+    return colorScale[3];
+  } else if (value < 0.21) {
+    return colorScale[4];
+  } else if (value < 0.22) {
+    return colorScale[5];
+  } else {
+    return colorScale[6];
+  }
+};
+
 const Map = () => {
   const colorScale = [
     "#67000d",
@@ -707,10 +711,35 @@ vehicleRegistration:차량등록대수 */}
                       <th>지역구</th>
                       <td>{selectedRegion.name}</td>
                     </tr>
-
                     <tr>
                       <th>위험지수</th>
-                      <td>{selectedRegion.dangerIndex}</td>
+
+                      <td>
+                        {/* 위험지수를 표시하는 부분 */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          {/* 색상 바와 지수를 표시하는 컨테이너 */}
+                          <div
+                            style={{
+                              height: "20px",
+                              // 위험지수에 따라 바의 길이를 동적으로 조절
+                              width: `${selectedRegion.dangerIndex * 10}px`,
+                              // getColor 함수를 사용하여 위험지수에 따른 색상을 설정
+                              backgroundColor: getColor(
+                                selectedRegion.dangerIndex
+                              ),
+                            }}
+                          ></div>
+                          {/* 위험지수 값 텍스트 */}
+                          <span style={{ marginLeft: "5px" }}>
+                            {selectedRegion.dangerIndex}
+                          </span>
+                        </div>
+                      </td>
                     </tr>
                     <tr>
                       <th>어린이사고수</th>
@@ -765,9 +794,68 @@ vehicleRegistration:차량등록대수 */}
               </tbody>
             </table>
           ) : (
-            <div style={{ textAlign: "center", color: "white" }}>
-              지역을 클릭해 주세요
-            </div>
+            <table style={{ textAlign: "left", color: "white" }}>
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <th>지역구</th>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <th>위험지수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어린이사고수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>예측어린이사고수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>인구수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어린이인구</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어린이사고수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>차량등록대수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어린이공원개수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어린이집수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>유치원수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>초등학교수</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어유초</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>어린이보호구역개수</th>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           )}
         </Box>
       </div>
