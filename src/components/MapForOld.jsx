@@ -20,6 +20,15 @@ const getColor = (value) => {
   else return "#b10026";
 };
 
+const colorScale = [
+  "#b10026",
+  "#e31a1c",
+  "#fc4e2a",
+  "#fd8d3c",
+  "#feb24c",
+  "#ffeda0",
+];
+
 const MapForOld = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [centers, setCenters] = useState(null);
@@ -91,6 +100,35 @@ const MapForOld = () => {
 
   return (
     <div style={{ display: "flex" }} width="100vh" height="100%">
+      <div
+        className="legend"
+        style={{ width: "5%", height: "1000px", padding: "10px" }}
+      >
+        {colorScale.map((color, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "5px",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: color,
+                marginRight: "5px",
+              }}
+            ></div>
+            {index === 0
+              ? "위험"
+              : index === colorScale.length - 1
+              ? "안전"
+              : ""}
+          </div>
+        ))}
+      </div>
       <MapContainer
         center={[37.5665, 126.978]}
         zoom={11}
@@ -207,7 +245,7 @@ const MapForOld = () => {
               </tbody>
             </table>
           ) : (
-            <div style={{ textAlign: "center", color: "white" }}>
+            <div style={{ textAlign: "center", color: "darkgray" }}>
               지역을 클릭해 주세요
             </div>
           )}
