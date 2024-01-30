@@ -5,7 +5,7 @@ import BarChart from "../../components/BarChart";
 const Bar = () => {
   return (
     <Box m="20px">
-      <Header title="어린이 교통사고 위험구역" subtitle="어린이보호구역" />
+      <Header title="어린이 보호구역 미흡지역" subtitle="사고율이 높은 도로" />
 
       <Box height="75vh">
         <img

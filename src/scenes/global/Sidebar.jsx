@@ -119,7 +119,7 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/"
+              to={isDarkmode ? "/" : "/oldManMap"}
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -133,29 +133,34 @@ const Sidebar = () => {
               Charts
             </Typography>
             <Item
-              title="취약지역"
-              to="/bar"
+              title={isDarkmode ? "미흡지역" : "노인차트1"}
+              to={isDarkmode ? "/bar" : "/oldchart1"}
               icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
-              title="안전지역"
               to="/pie"
+              title={isDarkmode ? "우수지역" : "노인차트2"}
+              to={isDarkmode ? "/pie" : "/oldchart2"}
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
-              title="교통사고예측"
               to="/line"
+              title={isDarkmode ? "어린이교통사고예측" : "노인교통사고예측"}
+              to={isDarkmode ? "/line" : "/oldprediction"}
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
             <Item
-              title="지표"
-              to="/geography"
+              title={isDarkmode ? "지표" : "노인지표"}
+              to={isDarkmode ? "/geography" : "/oldindicator"}
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

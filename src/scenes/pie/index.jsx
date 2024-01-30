@@ -5,7 +5,7 @@ import PieChart from "../../components/PieChart";
 const Pie = () => {
   return (
     <Box m="20px">
-      <Header title="어린이 교통사고 낮은 도로" subtitle="어린이보호구역" />
+      <Header title="어린이 보호구역 우수지역" subtitle="사고율이 낮은 도로" />
       <Box height="75vh">
         <img
           src="assets/safe.png"
