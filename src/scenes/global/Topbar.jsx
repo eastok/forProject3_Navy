@@ -20,7 +20,7 @@ const Topbar = () => {
 
   const handleImageClick = () => {
     colorMode.toggleColorMode();
-    navigate(isDarkmode ? "/" : "/oldManMap");
+    navigate(isDarkmode ? "/oldManMap" : "/");
   };
 
   return (
