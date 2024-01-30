@@ -147,7 +147,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="차트3"
+              title="어린이교통사고예측"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
