@@ -21,6 +21,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
+        
         <Header
           title="서울시지역별교통사고"
           subtitle="노인/어린이 보행자 사고에 미치는 요인분석"
