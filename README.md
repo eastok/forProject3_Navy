@@ -6,3 +6,7 @@
 2. 터미널 : yarn add cross-env
 3. package.json : "start": "cross-env PORT=5000 react-scripts start",
 4. 터미널 : yarn start
+
+
+https://github.com/sonyuyoung/forProject3_Navy/assets/139303925/26580059-4ae4-4347-b5f5-9e85771db2dc
+
