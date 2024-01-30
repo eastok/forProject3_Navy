@@ -44,7 +44,7 @@ const Topbar = () => {
           alt="profile-user"
           width="36.55px"
           height="36.55px"
-          src={isDarkmode ? `../../assets/baby.png` : `../../assets/old.png`}
+          src={isDarkmode ? `../../assets/old.png` : `../../assets/baby.png`}
           style={{ cursor: "pointer", borderRadius: "50%" }}
         />
         {/* <IconButton>
