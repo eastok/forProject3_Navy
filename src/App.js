@@ -17,6 +17,11 @@ import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import GeographyChart from "./components/GeographyChart";
 import OldManMap from "./scenes/dashboard/OldManMap";
+import Oldchart1 from "./scenes/oldman/Oldchart1";
+import Oldchart2 from "./scenes/oldman/Oldchart2";
+import Oldindicator from "./scenes/oldman/Oldindicator";
+import Oldprediction from "./scenes/oldman/Oldprediction";
+
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -42,6 +47,10 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
+              <Route path="/oldchart1" element={<Oldchart1 />} />
+              <Route path="/oldchart2" element={<Oldchart2 />} />
+              <Route path="/oldprediction" element={<Oldprediction />} />
+              <Route path="/oldindicator" element={<Oldindicator />} />
             </Routes>
           </main>
         </div>

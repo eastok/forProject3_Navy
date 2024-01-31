@@ -133,7 +133,7 @@ const Sidebar = () => {
               Charts
             </Typography>
             <Item
-              title={isDarkmode ? "미흡지역" : "노인차트1"}
+              title={isDarkmode ? "미흡지역" : "시간대별"}
               to={isDarkmode ? "/bar" : "/oldchart1"}
               icon={<BarChartOutlinedIcon />}
               selected={selected}
@@ -141,8 +141,7 @@ const Sidebar = () => {
             />
 
             <Item
-              to="/pie"
-              title={isDarkmode ? "우수지역" : "노인차트2"}
+              title={isDarkmode ? "우수지역" : "남녀피해별"}
               to={isDarkmode ? "/pie" : "/oldchart2"}
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
@@ -150,8 +149,7 @@ const Sidebar = () => {
             />
 
             <Item
-              to="/line"
-              title={isDarkmode ? "어린이교통사고예측" : "노인교통사고예측"}
+              title={isDarkmode ? "어린이교통사고예측" : "상관관계"}
               to={isDarkmode ? "/line" : "/oldprediction"}
               icon={<TimelineOutlinedIcon />}
               selected={selected} 
@@ -159,7 +157,7 @@ const Sidebar = () => {
             />
 
             <Item
-              title={isDarkmode ? "지표" : "노인지표"}
+              title={isDarkmode ? "지표" : "노인 교통사고 예측"}
               to={isDarkmode ? "/geography" : "/oldindicator"}
               icon={<MapOutlinedIcon />}
               selected={selected}
