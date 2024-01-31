@@ -71,7 +71,7 @@ const Geography = () => {
   return (
     <Box m="20px">
       {/* HEADER */}
-      <Box mt={2} display="flex" justifyContent="" >
+      <Box mt={2} display="flex" justifyContent="">
         {/* <Button
           onClick={() => fetchData("children")}
           sx={{
@@ -112,11 +112,11 @@ const Geography = () => {
               
             </Box> */}
             <Box>
-                <Header
-                  title="서울시지역별어린이교통사고"
-                  subtitle="어린이 보행자 사고에 미치는 요인분석"
-                />
-              </Box>
+              <Header
+                title="서울시지역별어린이교통사고"
+                subtitle="어린이 보행자 사고에 미치는 요인분석"
+              />
+            </Box>
 
             <Box
               display="grid"
@@ -264,7 +264,6 @@ const Geography = () => {
                   }
                 />
               </Box>
-
               {/* ROW 2 */}
               <Box
                 gridColumn="span 10"
@@ -278,20 +277,19 @@ const Geography = () => {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                >
-                <img src="../../assets/OECD국가별.png" alt="Social Analysis" style={{ width: "100%" }} />
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                  >
+                    <img
+                      src="../../assets/OECD국가별.png"
+                      alt="Social Analysis"
+                      style={{ width: "100%" }}
+                    />
+                  </Box>
                 </Box>
-
-                </Box>
-
-            
               </Box>
-
               {/* ROW 3:  뭐 원형 그래프? */}
               <Box
                 gridColumn="span 8"
@@ -303,30 +301,48 @@ const Geography = () => {
                   사회적 요인 상관관계 분석
                 </Typography> */}
 
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                >
-                <img src="../../assets/사회적요인과 상관관계분석.png" alt="Social Analysis" style={{ width: "100%" }} />
+                <Box display="flex" flexDirection="column" alignItems="center">
+                  <img
+                    src="../../assets/사회적요인과 상관관계분석.png"
+                    alt="Social Analysis"
+                    style={{ width: "100%" }}
+                  />
                 </Box>
               </Box>
-
               {/*    Sales Quantity*/}
+
               <Box
                 gridColumn="span 10"
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
               >
-                <Typography
-                  variant="h5"
-                  fontWeight="600"
-                  sx={{ padding: "30px 30px 0 30px" }}
+                <Box
+                  mt="25px"
+                  p="0 30px"
+                  display="flex "
+                  justifyContent="space-between"
+                  alignItems="center"
                 >
-                  Sales Quantity
-                </Typography>
-                <Box height="250px" mt="-20px">
-                  <BarChart isDashboard={true} />
+                  <Box>
+                    <Typography
+                      variant="h3"
+                      fontWeight="bold"
+                      color={colors.greenAccent[500]}
+                    >
+                      GradientBoosting
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      fontWeight="600"
+                      color={colors.grey[100]}
+                    >
+                      지역구별 어린이 사고수와 예측어린이 사고수
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box height="250px" m="-20px 0 0 0">
+                  <LineChart isDashboard={true} />
                 </Box>
               </Box>
               {/*  Sales Quantity 끝 */}
@@ -561,18 +577,20 @@ const Geography = () => {
                       />
                     </Box>
                   </Box>
-              
                 </Box>
               </Box>
-              {/*    Sales Quantity*/}
+
               <Box
                 gridColumn="span 10"
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
               >
-                <img src="../../assets/OECD국가별.png" alt="OECD 국가별" style={{ width: "100%" }} />
+                <img
+                  src="../../assets/OECD국가별.png"
+                  alt="OECD 국가별"
+                  style={{ width: "100%" }}
+                />
               </Box>
-              {/*  Sales Quantity 끝 */}
             </Box>
           </div>
         </Box>

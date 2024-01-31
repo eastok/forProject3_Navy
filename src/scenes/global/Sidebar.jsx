@@ -154,7 +154,7 @@ const Sidebar = () => {
               title={isDarkmode ? "어린이교통사고예측" : "노인교통사고예측"}
               to={isDarkmode ? "/line" : "/oldprediction"}
               icon={<TimelineOutlinedIcon />}
-              selected={selected}
+              selected={selected} 
               setSelected={setSelected}
             />
 
