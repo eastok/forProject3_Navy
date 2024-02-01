@@ -149,15 +149,15 @@ const Sidebar = () => {
             />
 
             <Item
-              title={isDarkmode ? "어린이교통사고예측" : "상관관계"}
+              title={isDarkmode ? "어린이교통사고예측" : "노인 교통사고 예측"}
               to={isDarkmode ? "/line" : "/oldprediction"}
               icon={<TimelineOutlinedIcon />}
-              selected={selected} 
+              selected={selected}
               setSelected={setSelected}
             />
 
             <Item
-              title={isDarkmode ? "지표" : "노인 교통사고 예측"}
+              title={isDarkmode ? "지표" : "상관관계 분석 및 예측결과"}
               to={isDarkmode ? "/geography" : "/oldindicator"}
               icon={<MapOutlinedIcon />}
               selected={selected}
