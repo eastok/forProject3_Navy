@@ -489,10 +489,10 @@ const getColor = (value) => {
   console.log("Selected Danger Index:", value);
   // 빨간 톤 팔레트로 세부적인 색상 반환
   const colorScale = [
-    "#fee5d9",
     "#fcbba1",
-    "#fc9272",
-    "#fb6a4a",
+    "#fb977c",
+    "#f56850",
+    "#f13724",
     "#de2d26",
     "#a50f15",
     "#67000d",
@@ -541,11 +541,12 @@ const Map = () => {
     "#67000d",
     "#a50f15",
     "#de2d26",
-    "#fb6a4a",
-    "#fc9272",
+    "#f13724",
+    "#f56850",
+    "#fb977c",
     "#fcbba1",
-    "#fee5d9",
   ];
+
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
 
@@ -595,9 +596,8 @@ const Map = () => {
     );
     setSelectedRegion(selectedData);
 
-    layer
-      .bindPopup(
-        `<b>${geoJsonFeature.properties.name}</b>
+    layer.bindPopup(
+      `<b>${geoJsonFeature.properties.name}</b>
         <br>
         위험지수: ${selectedData.dangerIndex}<br>
         어린이 사고수: ${selectedData.childAccidents}<br>
@@ -613,8 +613,8 @@ const Map = () => {
         cctv 개수: ${selectedData.cctv}<br>
         어린이 보호구역 개수: ${selectedData.protectionzone}<br>
       `
-      )
-      .openPopup();
+    );
+    // .openPopup();
   };
 
   return (
