@@ -74,7 +74,7 @@ const data = [
     elementary: 12,
     cctv: 76,
     protectionzone: 43,
-    value: 0.155832,
+    value: 0.202494,
   },
   {
     name: "종로구",
@@ -91,7 +91,7 @@ const data = [
     elementary: 13,
     cctv: 45,
     protectionzone: 48,
-    value: 0.192157,
+    value: 0.247415,
   },
   {
     name: "용산구",
@@ -108,7 +108,7 @@ const data = [
     elementary: 15,
     cctv: 235,
     protectionzone: 37,
-    value: 0.164616,
+    value: 0.193934,
   },
   {
     name: "성동구",
@@ -125,7 +125,7 @@ const data = [
     elementary: 21,
     cctv: 490,
     protectionzone: 52,
-    value: 0.128627,
+    value: 0.136264,
   },
   {
     name: "금천구",
@@ -142,7 +142,7 @@ const data = [
     elementary: 18,
     cctv: 268,
     protectionzone: 46,
-    value: 0.188006,
+    value: 0.240869,
   },
   {
     name: "서대문구",
@@ -159,7 +159,7 @@ const data = [
     elementary: 19,
     cctv: 132,
     protectionzone: 40,
-    value: 0.145393,
+    value: 0.163812,
   },
   {
     name: "강북구",
@@ -176,7 +176,7 @@ const data = [
     elementary: 14,
     cctv: 351,
     protectionzone: 41,
-    value: 0.191319,
+    value: 0.249577,
   },
   {
     name: "도봉구",
@@ -193,7 +193,7 @@ const data = [
     elementary: 23,
     cctv: 151,
     protectionzone: 64,
-    value: 0.164114,
+    value: 0.193209,
   },
   {
     name: "마포구",
@@ -210,7 +210,7 @@ const data = [
     elementary: 22,
     cctv: 195,
     protectionzone: 52,
-    value: 0.155583,
+    value: 0.162194,
   },
   {
     name: "관악구",
@@ -227,7 +227,7 @@ const data = [
     elementary: 22,
     cctv: 258,
     protectionzone: 72,
-    value: 0.117856,
+    value: 0.175216,
   },
   {
     name: "동대문구",
@@ -244,7 +244,7 @@ const data = [
     elementary: 21,
     cctv: 282,
     protectionzone: 75,
-    value: 0.176801,
+    value: 0.206647,
   },
   {
     name: "동작구",
@@ -261,7 +261,7 @@ const data = [
     elementary: 21,
     cctv: 400,
     protectionzone: 66,
-    value: 0.169145,
+    value: 0.190136,
   },
   {
     name: "광진구",
@@ -278,7 +278,7 @@ const data = [
     elementary: 21,
     cctv: 625,
     protectionzone: 74,
-    value: 0.208073,
+    value: 0.247908,
   },
   {
     name: "서초구",
@@ -295,7 +295,7 @@ const data = [
     elementary: 24,
     cctv: 204,
     protectionzone: 92,
-    value: 0.189431,
+    value: 0.160969,
   },
   {
     name: "성북구",
@@ -312,7 +312,7 @@ const data = [
     elementary: 29,
     cctv: 444,
     protectionzone: 102,
-    value: 0.188572,
+    value: 0.19678,
   },
   {
     name: "강동구",
@@ -329,7 +329,7 @@ const data = [
     elementary: 27,
     cctv: 237,
     protectionzone: 85,
-    value: 0.202497,
+    value: 0.201959,
   },
   {
     name: "영등포구",
@@ -346,7 +346,7 @@ const data = [
     elementary: 23,
     cctv: 286,
     protectionzone: 66,
-    value: 0.244299,
+    value: 0.27189,
   },
   {
     name: "구로구",
@@ -363,7 +363,7 @@ const data = [
     elementary: 27,
     cctv: 546,
     protectionzone: 61,
-    value: 0.233851,
+    value: 0.237194,
   },
   {
     name: "노원구",
@@ -380,7 +380,7 @@ const data = [
     elementary: 42,
     cctv: 260,
     protectionzone: 121,
-    value: 0.174558,
+    value: 0.182903,
   },
   {
     name: "중랑구",
@@ -397,7 +397,7 @@ const data = [
     elementary: 23,
     cctv: 141,
     protectionzone: 42,
-    value: 0.242845,
+    value: 0.29399,
   },
   {
     name: "송파구",
@@ -414,7 +414,7 @@ const data = [
     elementary: 40,
     cctv: 449,
     protectionzone: 88,
-    value: 0.209994,
+    value: 0.196889,
   },
   {
     name: "강서구",
@@ -431,7 +431,7 @@ const data = [
     elementary: 35,
     cctv: 288,
     protectionzone: 88,
-    value: 0.169287,
+    value: 0.172826,
   },
   {
     name: "은평구",
@@ -448,7 +448,7 @@ const data = [
     elementary: 30,
     cctv: 750,
     protectionzone: 74,
-    value: 0.180109,
+    value: 0.199105,
   },
   {
     name: "양천구",
@@ -465,7 +465,7 @@ const data = [
     elementary: 30,
     cctv: 831,
     protectionzone: 96,
-    value: 0.251776,
+    value: 0.238539,
   },
   {
     name: "강남구",
@@ -482,7 +482,7 @@ const data = [
     elementary: 33,
     cctv: 1157,
     protectionzone: 116,
-    value: 0.215796,
+    value: 0.207103,
   },
 ];
 const getColor = (value) => {
@@ -492,24 +492,24 @@ const getColor = (value) => {
     "#fcbba1",
     "#fb977c",
     "#f56850",
-    "#f13724",
-    "#de2d26",
-    "#a50f15",
-    "#67000d",
+    "#d83624",
+    "#ce1f19",
+    "#92070c",
+    "#53010c",
   ];
 
   // value 값을 기반으로 팔레트 선택
-  if (value < 0.15) {
+  if (value < 0.16) {
     return colorScale[0];
-  } else if (value < 0.165) {
-    return colorScale[1];
   } else if (value < 0.18) {
-    return colorScale[2];
+    return colorScale[1];
   } else if (value < 0.2) {
-    return colorScale[3];
+    return colorScale[2];
   } else if (value < 0.21) {
+    return colorScale[3];
+  } else if (value < 0.23) {
     return colorScale[4];
-  } else if (value < 0.22) {
+  } else if (value < 0.25) {
     return colorScale[5];
   } else {
     return colorScale[6];
