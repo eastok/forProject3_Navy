@@ -397,13 +397,13 @@ const Oldchart2 = () => {
 
             <Box
               display="grid"
-              gridTemplateColumns="repeat(10, 1fr)"
+              gridTemplateColumns="repeat(15, 1fr)"
               gridAutoRows="170px"
               gap="20px"
             >
               {/* ROW 1 */}
               <Box
-                gridColumn="span 2"
+                gridColumn="span 3"
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -425,7 +425,7 @@ const Oldchart2 = () => {
                 />
               </Box>
               <Box
-                gridColumn="span 2"
+                gridColumn="span 3"
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -450,7 +450,7 @@ const Oldchart2 = () => {
                 />
               </Box>
               <Box
-                gridColumn="span 2"
+                gridColumn="span 3"
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -472,7 +472,7 @@ const Oldchart2 = () => {
                 />
               </Box>
               <Box
-                gridColumn="span 2"
+                gridColumn="span 3"
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -494,7 +494,7 @@ const Oldchart2 = () => {
                 />
               </Box>
               <Box
-                gridColumn="span 2"
+                gridColumn="span 3"
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -535,9 +535,22 @@ const Oldchart2 = () => {
                   style={{ cursor: "pointer" }}
                 />
               </Box>
+              <Box
+                gridColumn="span 5"
+                gridRow="span 2"
+                backgroundColor={colors.primary[400]}
+              >
+                <img
+                  alt="성별에 따른 구별 사고량"
+                  width="100%"
+                  height="100%"
+                  src="/oldimg/차종별 피해운전자 상해정도.png"
+                  style={{ cursor: "pointer" }}
+                />
+              </Box>
               {/*    Sales Quantity*/}
               <Box
-                gridColumn="span 10"
+                gridColumn="span 15"
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
               >
