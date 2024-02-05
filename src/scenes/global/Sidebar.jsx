@@ -116,10 +116,11 @@ const Sidebar = () => {
             </Box>
           )}
 
+          {/* 위 */}
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
-              title="Dashboard"
-              to={isDarkmode ? "/" : "/oldManMap"}
+              title={isDarkmode ? "Dashboard" : "상관관계 분석 및 예측결과"}
+              to={isDarkmode ? "/geography" : "/oldindicator"}
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -156,9 +157,10 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
+            {/* 밑 */}
             <Item
-              title={isDarkmode ? "지표" : "상관관계 분석 및 예측결과"}
-              to={isDarkmode ? "/geography" : "/oldindicator"}
+              title="지도"
+              to={isDarkmode ? "/" : "/oldManMap"}
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
