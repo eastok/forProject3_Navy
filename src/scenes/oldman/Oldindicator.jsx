@@ -401,10 +401,10 @@ const Oldindicator = () => {
               gridAutoRows="170px"
               gap="20px"
             >
-                            {/* ROW 2 */}
-                            <Box
+              {/* 상관관계 시각화 - 전체 컬럼의 절반을 차지하도록 조정 */}
+              <Box
                 gridColumn="span 9"
-                gridRow="span 2"
+                gridRow="span 4" // 상관관계 시각화를 두 행의 공간을 차지하도록 조정
                 backgroundColor={colors.primary[400]}
               >
                 <img
@@ -415,6 +415,8 @@ const Oldindicator = () => {
                   style={{ cursor: "pointer" }}
                 />
               </Box>
+
+              {/* 오른쪽 상단 이미지 */}
               <Box
                 gridColumn="span 9"
                 gridRow="span 2"
@@ -429,22 +431,7 @@ const Oldindicator = () => {
                 />
               </Box>
 
-              {/* ROW 3:  뭐 원형 그래프? */}
-              <Box
-                gridColumn="span 9"
-                gridRow="span 2"
-                backgroundColor={colors.primary[400]}
-              >
-                <img
-                  alt="전체 구별 실제 발생건수 대비 예측사고 발생건수"
-                  width="100%"
-                  height="100%"
-                  src="/oldimg/전체 구별 실제 발생건수 대비 예측사고 발생건수.png"
-                  style={{ cursor: "pointer" }}
-                />
-              </Box>
-              {/*    Sales Quantity*/}
-
+              {/* 오른쪽 하단 이미지 */}
               <Box
                 gridColumn="span 9"
                 gridRow="span 2"
@@ -458,7 +445,7 @@ const Oldindicator = () => {
                   style={{ cursor: "pointer" }}
                 />
               </Box>
-              </Box>
+            </Box>
           </div>
         </Box>
       )}

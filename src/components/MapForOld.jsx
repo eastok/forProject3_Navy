@@ -82,9 +82,8 @@ const MapForOld = () => {
     );
     setSelectedRegion(selectedData);
 
-    layer
-      .bindPopup(
-        `<b>${geoJsonFeature.properties.name}</b><br>
+    layer.bindPopup(
+      `<b>${geoJsonFeature.properties.name}</b><br>
        노인 인구수: ${selectedData["노인 인구수"].toLocaleString()}<br>
        사고 발생 건수: ${selectedData["사고 발생 건수"]}<br>
        사고 비율(%): ${selectedData["사고 비율(%)"].toFixed(2)}<br>
@@ -94,8 +93,8 @@ const MapForOld = () => {
        재가노인복지시설 수: ${selectedData["재가노인복지시설 수"]}<br>
        전통시장 수: ${selectedData["전통시장 수"]}<br>
        공원 수: ${selectedData["공원 수"]}`
-      )
-      .openPopup();
+    );
+    // .openPopup();
   };
 
   return (
@@ -131,8 +130,8 @@ const MapForOld = () => {
       </div>
       <MapContainer
         center={[37.5665, 126.978]}
-        zoom={11}
-        style={{ width: "70%", height: "500px" }}
+        zoom={12}
+        style={{ width: "70%", height: "1000px" }}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {geoJsonData && accidentData && (

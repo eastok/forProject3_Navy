@@ -389,7 +389,7 @@ const Oldchart1 = () => {
             >
               <Box>
                 <Header
-                  title="2020 - 2022서울시 노인 보행자 교통사고"
+                  title="서울시 노인 보행자 교통사고"
                   subtitle="3년간의 노인 보행자 사고의 시간대 분석"
                 />
               </Box>
