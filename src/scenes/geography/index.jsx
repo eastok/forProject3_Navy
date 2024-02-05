@@ -136,8 +136,8 @@ const Geography = () => {
                   // mainTitle="서울시 어린이 교통사고 "
                   title="1,805건"
                   subtitle="교통사고 건수"
-                  progress="0.75"
-                  increase="+14%"
+                  // progress="0.75"
+                  // increase="+14%"
                   icon={
                     <EmailIcon
                       sx={{
@@ -159,8 +159,6 @@ const Geography = () => {
                   // mainTitle="서울시 어린이 교통사고 "
                   title="6건"
                   subtitle="어린이사망자수"
-                  progress="0.75"
-                  increase="+14%"
                   icon={
                     <EmailIcon
                       sx={{
@@ -249,9 +247,9 @@ const Geography = () => {
               >
                 <StatBox
                   subtitle="가해자 상해비율"
-                  title2="89.4%"
+                  title2="10.6%"
                   subtitle2="피해자 상해비율"
-                  title="0.08%"
+                  title="99.92%"
                   // progress="0.80"
                   // increase="+43%"
                   icon={
